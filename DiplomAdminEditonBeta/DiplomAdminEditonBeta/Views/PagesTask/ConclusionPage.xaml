@@ -1,0 +1,15 @@
+﻿<Page x:Class="DiplomAdminEditonBeta.Views.PagesTask.ConclusionPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAdminEditonBeta.Views.PagesTask"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConclusionPage">
+
+    <Grid>
+        <TextBlock x:Name="ConclusionTB" Style="{StaticResource TextBlockStyle}"  TextWrapping="Wrap" Foreground="White" LineStackingStrategy="BlockLineHeight" LineHeight="30" FontSize="18"/>
+        <Button Width="200" Height="75" HorizontalAlignment="Center" Content="Сгенерировать вывод" VerticalAlignment="Bottom" x:Name="GenerateConlusionBut" Click="GenerateConlusionBut_Click"/>
+    </Grid>
+</Page>

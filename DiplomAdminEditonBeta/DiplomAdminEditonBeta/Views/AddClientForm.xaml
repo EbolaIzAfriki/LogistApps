@@ -1,0 +1,34 @@
+﻿<Window x:Class="DiplomAdminEditonBeta.Views.Pages.AddClientForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAdminEditonBeta.Views.Pages"
+        mc:Ignorable="d"
+        Title="Создание нового клиента" Height="322.125" Width="356.75" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Grid Background="#FF209AFF">
+        <Border Background="#FF49ADFF" Margin="10" CornerRadius="10">
+            <StackPanel Margin="10">
+                <TextBlock Text="Наименование компании:"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBox x:Name="CompanyNameTB" Style="{StaticResource RoundedTextBox}"/>
+                <TextBlock Text="Адрес компании:"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBox x:Name="AddressTB" Style="{StaticResource RoundedTextBox}"/>
+                <TextBlock Text="Тип компании:"  Style="{StaticResource TextBlockStyle}"/>
+                <ComboBox x:Name="CompanyTypeCB" Style="{StaticResource ComboBoxStyle5}" Margin="5" BorderBrush="Transparent">
+                    <ComboBoxItem>
+                        <TextBlock Text="Заказчик" Margin="0" Style="{StaticResource TextBlockStyle}"/>
+                    </ComboBoxItem>
+                    <ComboBoxItem>
+                        <TextBlock Text="Поставщик" Margin="0" Style="{StaticResource TextBlockStyle}"/>
+                    </ComboBoxItem>
+                </ComboBox>
+
+                <TextBlock Text="Почта:"  Style="{StaticResource TextBlockStyle}"/>
+                <TextBox x:Name="EmailTB" Style="{StaticResource RoundedTextBox}"/>
+
+                <Button Content="Создать" Height="30" x:Name="AddBut"  Click="AddBut_Click" />
+            </StackPanel>
+        </Border>
+       
+    </Grid>
+</Window>

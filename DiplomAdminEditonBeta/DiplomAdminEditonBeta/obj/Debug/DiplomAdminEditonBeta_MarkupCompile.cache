@@ -1,0 +1,20 @@
+﻿DiplomAdminEditonBeta
+
+
+winexe
+C#
+.cs
+C:\Users\Школьник 337\source\repos\ClientServerLogistApp\DiplomAdminEditonBeta\DiplomAdminEditonBeta\obj\Debug\
+DiplomAdminEditonBeta
+none
+false
+DEBUG;TRACE
+C:\Users\Школьник 337\source\repos\ClientServerLogistApp\DiplomAdminEditonBeta\DiplomAdminEditonBeta\App.xaml
+14-1839000836
+
+33-113632805
+27-324820192
+Views\AutorizationForm.xaml;Views\MainForm.xaml;Views\AddClientForm.xaml;Views\AddCarrierForm.xaml;Views\MainWorkOnTaskForm.xaml;Views\PagesTask\ConclusionPage.xaml;Views\PagesTask\ConstrainsPage.xaml;Views\PagesTask\PointsPage.xaml;Views\PagesTask\TarifsAndPointsPage.xaml;Views\PagesTask\VendorsAndConsumptionsPage.xaml;Views\PagesTask\NeedServisesAndChoseCarrierPage.xaml;Views\Pages\ClientPage.xaml;Views\Pages\RequestPage.xaml;Views\Pages\CarriersPage.xaml;
+
+True
+

@@ -1,0 +1,54 @@
+﻿<Page x:Class="DiplomAdminEditonBeta.Views.PagesTask.PointsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:sys="clr-namespace:System;assembly=mscorlib"
+      xmlns:local="clr-namespace:DiplomAdminEditonBeta.Views.PagesTask"
+      mc:Ignorable="d" 
+      d:DesignHeight="721" d:DesignWidth="1194" MinHeight="721" MinWidth="1194"
+      Title="PointsPage">
+
+    <Grid Background="#FF49ADFF">
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="48" MinHeight="48"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border  Background="#FFFFFFFF" Margin="20 15 150 5" CornerRadius="5" BorderBrush="#FFABADB3" BorderThickness="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition MaxWidth="30"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox Margin="2" BorderBrush="{x:Null}" Style="{StaticResource TextBoxStyle}" Name="SearchTB" Grid.Column="1" TextChanged="SearchTB_TextChanged"/>
+                    <Image Source="/Иконки/discover.png" HorizontalAlignment="Left" Margin="5 0 0 0"/>
+                </Grid>
+            </Border>
+        </Grid>
+        <DataGrid Margin="20 10 20 5" Grid.Row="1"  AutoGenerateColumns="False" x:Name="PointsDataGrid"  RowStyle="{DynamicResource DataGridRowStyle1}" ColumnHeaderStyle="{DynamicResource DataGridColumnHeaderStyle1}" CellStyle="{DynamicResource DataGridCellStyle1}" Style="{DynamicResource DataGridStyle1}" CellEditEnding="PointsDataGrid_CellEditEnding">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Тип компании" Binding="{Binding Client.TypeClient.Name,  UpdateSourceTrigger=PropertyChanged}" Width="0.7*" IsReadOnly ="True"/>
+                <DataGridTemplateColumn Header="Наименование компании"  Width="*" IsReadOnly ="True">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <ComboBox ItemsSource="{Binding clientsList}" DisplayMemberPath="CompanyName" SelectedItem="{Binding Client, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" SelectedValue="{Binding Client.Id, Mode=TwoWay}" SelectedValuePath="Id" SelectionChanged="ComboBox_SelectionChanged" Style="{DynamicResource ComboBoxStyle1}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Наименование пункта" Binding="{Binding Name,  UpdateSourceTrigger=PropertyChanged}"  Width="*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Адрес" Binding="{Binding Address,  UpdateSourceTrigger=PropertyChanged}"  Width="1.2*">
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Число продукции" Binding="{Binding ProductCount,  UpdateSourceTrigger=PropertyChanged}" Width="0.7*">
+                </DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Page>

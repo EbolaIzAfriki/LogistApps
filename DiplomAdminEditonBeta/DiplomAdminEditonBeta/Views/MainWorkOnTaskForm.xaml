@@ -1,0 +1,60 @@
+﻿<Window x:Class="DiplomAdminEditonBeta.Views.MainWorkOnTaskForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAdminEditonBeta.Views"
+        mc:Ignorable="d"
+         Title="Главная форма" Height="800" Width="1500" MinHeight="800" MinWidth="1500" WindowStartupLocation="CenterScreen" Background="#FF209AFF" Focusable="True" Closing="Window_Closing" >
+    <Grid  Background="#FF209AFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" MaxHeight="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="0.25*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Logist" Margin="10 10 5 5" FontFamily="/Fonts/Quota-Bold.otf #Quota Bold" FontSize="20" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <StackPanel  Grid.Row="0">
+                <RadioButton Content="Поставщики и заказчики" Name="VendorsAndConsumersRB" IsChecked="True" Style="{StaticResource RadioButtonMenu}" Checked="VendorsAndConsumersRB_Checked" />
+                <RadioButton Content="Пункты снабжения" Name="PointsRB" Style="{StaticResource RadioButtonMenu}" IsEnabled="False"  Checked="PointsRB_Checked"/>
+                <RadioButton Content="Ограничения" Name="ConstrainRB" Style="{StaticResource RadioButtonMenu}" Checked="ConstrainRB_Checked" IsEnabled="False"/>
+                <RadioButton Content="Услуги и перевозчики" Name="CarriersRB" Style="{StaticResource RadioButtonMenu}" Checked="CarriersRB_Checked" />
+                <RadioButton Content="Тарифы и пункты" Name="TarifsRB" Style="{StaticResource RadioButtonMenu}" Checked="TarifsRB_Checked" IsEnabled="False"/>
+                <RadioButton Content="Вывод" Name="ConclusionRB" Style="{StaticResource RadioButtonMenu}" Checked="ConclusionRB_Checked" IsEnabled="True"/>
+            </StackPanel>
+
+            <Grid Height="40" VerticalAlignment="Bottom" Margin="0 0 0 10" Grid.Row="1" MouseDown="Grid_MouseDown">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF008BFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Rectangle Fill="#00000000" />
+                <StackPanel Margin="25 0 0 0" Orientation="Horizontal">
+                    <Image Source="/Иконки/Выход.png" MaxWidth="30"  MaxHeight="30" Width="30" HorizontalAlignment="Left" ></Image>
+                    <TextBlock Text="На главную форму" Foreground="White" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Rectangle Fill="#FF2FA0FD" Grid.Column="1" Grid.RowSpan="2"/>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.Row="1"/>
+        <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="White" x:Name="StageTB" Grid.Column="1" VerticalAlignment="Center" FontSize="20" Margin="10 0 0 0"/>
+
+        <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right">
+            <TextBlock Text="Статус:" VerticalAlignment="Center" Name="StatusTB" FontSize="20" Margin="10 0 20 0" Foreground="White" Style="{StaticResource TextBlockStyle}"/>
+        </StackPanel>
+
+    </Grid>
+</Window>

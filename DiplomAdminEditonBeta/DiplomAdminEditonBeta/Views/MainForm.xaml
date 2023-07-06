@@ -1,0 +1,49 @@
+﻿<Window x:Class="DiplomAdminEditonBeta.MainForm"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DiplomAdminEditonBeta"
+        mc:Ignorable="d"
+        Title="Главная форма" Height="500" Width="1000" MinHeight="650" MinWidth="1350" WindowStartupLocation="CenterScreen" Background="#FF209AFF">
+    <Grid  Background="#FF209AFF">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="48" MaxHeight="48"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width ="0.25*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Logist" Margin="10 10 5 5" FontFamily="/Fonts/Quota-Bold.otf #Quota Bold" FontSize="20" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="White"/>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel  Grid.Row="0">
+                <RadioButton Content="Клиенты" Name="ClientsRB" IsChecked="True" Style="{StaticResource RadioButtonMenu}" Checked="ClientsRB_Checked"/>
+                <RadioButton Content="Перевозчики" Name="CarriersRB" Style="{StaticResource RadioButtonMenu}" Checked="CarriersRB_Checked"/>
+                <RadioButton Content="Заявки" Name="RequestsRB" Style="{StaticResource RadioButtonMenu}" Checked="RequestsRB_Checked"/>
+            </StackPanel>
+
+            <Grid Height="40" VerticalAlignment="Bottom" Margin="0 0 0 10" MouseDown="Grid_MouseDown" Grid.Row="1">
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="#FF008BFF"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+                <Rectangle Fill="#00000000" />
+                <StackPanel Margin="25 0 0 0" Orientation="Horizontal">
+                    <Image Source="/Иконки/Выход.png" MaxWidth="30"  MaxHeight="30" Width="30" HorizontalAlignment="Left" ></Image>
+                    <TextBlock Text="Выход" Foreground="White" Style="{StaticResource TextBlockStyle}" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Column="1" Grid.RowSpan="2" />
+    </Grid>
+</Window>

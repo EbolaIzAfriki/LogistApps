@@ -1,0 +1,97 @@
+﻿<Page x:Class="DiplomAdminEditonBeta.Views.PagesTask.ConstrainsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DiplomAdminEditonBeta.Views.PagesTask"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ConstrainsPage">
+    <Page.Resources>
+        <ControlTemplate  x:Key="First">
+            <Grid Background="Yellow">
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Second">
+            <Grid Background="Blue">
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Third">
+            <Grid Background="Green">
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="fourth">
+            <Grid Background="Black">
+            </Grid>
+        </ControlTemplate>
+        <ControlTemplate x:Key="Fifth">
+            <Grid Background="Wheat">
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+    <Grid>
+        <Border Margin="20 10 20 20" Background="#FF49ADFF" CornerRadius="20">
+            <ScrollViewer>
+                <ScrollViewer.Resources>
+                    <Style TargetType="ScrollBar" BasedOn="{StaticResource ScrollBarStyle1}"/>
+                </ScrollViewer.Resources>
+                <StackPanel>
+                    <ListBox Background="Transparent" Name="ListBoxConstrain" BorderBrush="Transparent" HorizontalContentAlignment="Stretch">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border Background="White" Margin="10" CornerRadius="10" Height="50">
+                                    <Grid VerticalAlignment="Center" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                            <ColumnDefinition Width="auto"/>
+                                        </Grid.ColumnDefinitions>
+                                        <ComboBox  DisplayMemberPath="Name" ItemsSource="{Binding typeConstraints}" SelectedIndex="{Binding TypeConstraintId}" MinWidth="150" Name="ComboBoxType" SelectionChanged="ComboBoxConstrain_SelectionChanged" VerticalAlignment="Center" FontSize="16" Style="{StaticResource ComboBoxStyle1}" Margin="5" FontFamily="/DiplomAdminEditonBeta;component/Fonts/#Golos UI">
+                                        </ComboBox>
+                                        <TextBox Grid.Column="1" Name="TextBoxCount" Text="{Binding ProductCount}" LostFocus="TextBoxCount_LostFocus" KeyDown="TextBoxCount_KeyDown" Style="{StaticResource RoundedTextBox}" PreviewTextInput="TextBoxCount_PreviewTextInput" Width="100" VerticalAlignment="Center" />
+                                        <TextBlock Grid.Column="2" Text="продукции из пункта"  Margin="5" Style="{StaticResource TextBlockStyle}" VerticalAlignment="Center"/>
+                                        <ComboBox SelectedItem="{Binding PointVendor,Mode=OneWay,  UpdateSourceTrigger=PropertyChanged}" DisplayMemberPath="Name" Grid.Column="3" Style="{StaticResource ComboBoxStyle1}" FontSize="16" ItemsSource="{Binding PointsVendors}" Name="ComboBoxVendors" SelectionChanged="ComboBoxVendors_SelectionChanged" MinWidth="150" VerticalAlignment="Center" FontFamily="/DiplomAdminEditonBeta;component/Fonts/#Golos UI" Margin="5"/>
+                                        <TextBlock Grid.Column="4" Text="в пункт" Margin="5" Style="{StaticResource TextBlockStyle}" VerticalAlignment="Center"/>
+                                        <ComboBox DisplayMemberPath="Name" SelectedItem="{Binding PointConsumer,Mode=OneWay,  UpdateSourceTrigger=PropertyChanged}"  Grid.Column="5" Style="{StaticResource ComboBoxStyle1}" FontSize="16" ItemsSource="{Binding PointsConsumers}" Name="ComboBoxConsumers" SelectionChanged="ComboBoxConsumers_SelectionChanged" MinWidth="150" FontFamily="/DiplomAdminEditonBeta;component/Fonts/#Golos UI" VerticalAlignment="Center" Margin="5"/>
+                                        <Button Grid.Column="6" Width="30" Height="30" Background="#FFFF6A6A" Name="DeleteButton" Click="DeleteButton_Click">
+                                            <Button.Style>
+                                                <Style TargetType="Button">
+                                                    <Style.Resources>
+                                                        <Style TargetType="Border">
+                                                            <Setter Property="CornerRadius" Value="4"/>
+                                                        </Style>
+                                                    </Style.Resources>
+                                                </Style>
+                                            </Button.Style>
+                                            <Image Source="/Иконки/DeletePicture.png" MaxWidth="20" MaxHeight="20"/>
+                                        </Button>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                    <Button Width="75" Height="75" Name="ButtonAddConstrain" Click="ButtonAddConstrain_Click">
+                        <Button.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="35"/>
+                            </Style>
+                        </Button.Resources>
+                        <Button.Content>
+                            <Grid>
+                                <Rectangle Fill="White" Height="15" Width="50"/>
+                                <Rectangle Fill="White" Height="50" Width="15"/>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </StackPanel>
+
+            </ScrollViewer>
+
+        </Border>
+
+    </Grid>
+</Page>
